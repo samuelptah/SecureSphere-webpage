@@ -1,0 +1,1880 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureSphere AI - Next-Generation Cybersecurity</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .matrix-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating:nth-child(2) {
+            animation-delay: -2s;
+        }
+
+        .floating:nth-child(3) {
+            animation-delay: -4s;
+        }
+
+        .floating:nth-child(4) {
+            animation-delay: -1s;
+        }
+
+        .floating:nth-child(5) {
+            animation-delay: -3s;
+        }
+
+        .floating:nth-child(6) {
+            animation-delay: -5s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+
+        .typewriter {
+            overflow: hidden;
+            border-right: 3px solid #667eea;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: #667eea;
+            }
+        }
+
+        .hero-stat {
+            animation: countUp 2s ease-out forwards;
+            animation-delay: 1s;
+        }
+
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .security-orbit {
+            animation: orbit 20s linear infinite;
+        }
+
+        .security-orbit:nth-child(2) {
+            animation-delay: -5s;
+        }
+
+        .security-orbit:nth-child(3) {
+            animation-delay: -10s;
+        }
+
+        .security-orbit:nth-child(4) {
+            animation-delay: -15s;
+        }
+
+        @keyframes orbit {
+            0% {
+                transform: rotate(0deg) translateX(200px) rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg) translateX(200px) rotate(-360deg);
+            }
+        }
+
+        .pulse-glow {
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+                transform: scale(1);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(102, 126, 234, 0.8);
+                transform: scale(1.05);
+            }
+        }
+
+        .slide-up {
+            animation: slideUp 1s ease-out forwards;
+        }
+
+        .slide-up:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .slide-up:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .slide-up:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .slide-up:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .slide-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .glow-button {
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .glow-button:hover {
+            box-shadow: 0 0 30px rgba(102, 126, 234, 0.8);
+            transform: translateY(-2px);
+        }
+
+        .tech-card {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .pulse-icon {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        #rotating-text {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .dark {
+            color-scheme: dark;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white overflow-x-hidden transition-colors duration-300"
+    style="background-image: url('securesphere3.jpg'); background-size: cover; background-position: center; background-attachment: fixed; background-repeat: no-repeat;">
+    <div class="fixed inset-0 bg-gray-900/60 backdrop-blur-sm z-0"></div>
+    <canvas id="matrix" class="matrix-bg"></canvas>
+
+    <!-- Navigation -->
+    <nav
+        class="fixed top-0 w-full z-50 bg-gray-900/95 backdrop-blur-xl border-b border-gray-700/50 shadow-2xl transition-colors duration-300 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo Section -->
+                <div class="flex items-center space-x-3 group">
+                    <div class="relative">
+                        <div
+                            class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-blue-500/30 transition-all duration-300">
+                            <i
+                                class="fas fa-shield-alt text-xl text-white group-hover:scale-110 transition-transform"></i>
+                        </div>
+                        <div
+                            class="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white dark:border-gray-900 animate-pulse">
+                        </div>
+                    </div>
+                    <div>
+                        <span
+                            class="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">SecureSphere
+                            AI</span>
+                        <div class="text-xs text-gray-500 dark:text-gray-400 font-medium">Cybersecurity Platform</div>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="#about"
+                        class="relative px-4 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800/50 transition-all duration-300 group">
+                        <i class="fas fa-info-circle mr-2 text-blue-400 group-hover:scale-110 transition-transform"></i>
+                        About
+                        <div
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 group-hover:w-full transition-all duration-300">
+                        </div>
+                    </a>
+                    <a href="#solutions"
+                        class="relative px-4 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800/50 transition-all duration-300 group">
+                        <i class="fas fa-cogs mr-2 text-purple-400 group-hover:scale-110 transition-transform"></i>
+                        Solutions
+                        <div
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-400 group-hover:w-full transition-all duration-300">
+                        </div>
+                    </a>
+                    <a href="#team"
+                        class="relative px-4 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800/50 transition-all duration-300 group">
+                        <i class="fas fa-users mr-2 text-green-400 group-hover:scale-110 transition-transform"></i>
+                        Team
+                        <div
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-green-400 group-hover:w-full transition-all duration-300">
+                        </div>
+                    </a>
+                    <a href="#contact"
+                        class="relative px-4 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800/50 transition-all duration-300 group">
+                        <i class="fas fa-envelope mr-2 text-yellow-400 group-hover:scale-110 transition-transform"></i>
+                        Contact
+                        <div
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300">
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="hidden md:flex items-center space-x-3">
+                    <div class="flex items-center space-x-2 text-xs text-gray-500 dark:text-gray-400">
+                        <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                        <span>System Online</span>
+                    </div>
+                    <button
+                        class="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-lg font-medium text-white shadow-lg hover:shadow-blue-500/30 transition-all duration-300 transform hover:scale-105">
+                        <i class="fas fa-rocket mr-2"></i>
+                        Get Started
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button
+                        class="w-10 h-10 bg-gray-700 rounded-lg flex items-center justify-center hover:bg-gray-600 transition-colors">
+                        <i class="fas fa-bars text-white"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-green-500 transition-all duration-300"
+            id="scroll-progress"></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero-section"
+        class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 z-10">
+        <div class="absolute inset-0 bg-black/30"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-purple-900/30 to-gray-900/30"></div>
+
+        <!-- Floating Security Icons -->
+        <div class="floating absolute top-10 left-10 text-4xl text-blue-300 opacity-80">
+            <i class="fas fa-lock"></i>
+        </div>
+        <div class="floating absolute top-20 right-20 text-3xl text-purple-300 opacity-80">
+            <i class="fas fa-shield-virus"></i>
+        </div>
+        <div class="floating absolute bottom-20 left-20 text-3xl text-cyan-300 opacity-80">
+            <i class="fas fa-brain"></i>
+        </div>
+        <div class="floating absolute top-1/3 left-1/4 text-2xl text-green-300 opacity-60">
+            <i class="fas fa-network-wired"></i>
+        </div>
+        <div class="floating absolute bottom-1/3 right-1/4 text-2xl text-yellow-300 opacity-60">
+            <i class="fas fa-eye"></i>
+        </div>
+        <div class="floating absolute top-1/2 right-10 text-3xl text-red-300 opacity-70">
+            <i class="fas fa-bug"></i>
+        </div>
+
+        <!-- Orbiting Security Elements -->
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="relative w-96 h-96">
+                <div
+                    class="security-orbit absolute top-0 left-1/2 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div
+                    class="security-orbit absolute top-0 left-1/2 w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-xs">
+                    <i class="fas fa-key"></i>
+                </div>
+                <div
+                    class="security-orbit absolute top-0 left-1/2 w-7 h-7 bg-green-500 rounded-full flex items-center justify-center text-white text-xs">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div
+                    class="security-orbit absolute top-0 left-1/2 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center text-white text-xs">
+                    <i class="fas fa-exclamation"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="relative z-10 text-center max-w-6xl mx-auto px-4">
+            <!-- Main Title with Rotating Messages -->
+            <div class="mb-4">
+                <h1 class="text-5xl md:text-7xl font-bold mb-2 slide-up">
+                    SecureSphere AI
+                </h1>
+                <div class="text-2xl md:text-3xl text-blue-300 font-semibold mb-6 inline-block">
+                    <span id="rotating-text">Advanced Cybersecurity Platform</span>
+                </div>
+            </div>
+
+            <!-- Enhanced Description -->
+            <p class="text-xl md:text-2xl mb-8 text-gray-100 slide-up max-w-4xl mx-auto leading-relaxed">
+                Next-generation AI-powered cybersecurity platform protecting against modern threats with intelligent
+                detection and prevention. Powered by Machine Learning and real-time threat intelligence.
+            </p>
+
+            <!-- Key Features Pills -->
+            <div class="flex flex-wrap justify-center gap-3 mb-8 slide-up">
+                <span class="bg-blue-600/30 border border-blue-400 px-4 py-2 rounded-full text-sm font-medium">
+                    <i class="fas fa-brain mr-2"></i>AI-Powered Detection
+                </span>
+                <span class="bg-purple-600/30 border border-purple-400 px-4 py-2 rounded-full text-sm font-medium">
+                    <i class="fas fa-bolt mr-2"></i>ML Prediction
+                </span>
+                <span class="bg-green-600/30 border border-green-400 px-4 py-2 rounded-full text-sm font-medium">
+                    <i class="fas fa-chart-line mr-2"></i>Behavioral Analytics
+                </span>
+                <span class="bg-red-600/30 border border-red-400 px-4 py-2 rounded-full text-sm font-medium">
+                    <i class="fas fa-shield-virus mr-2"></i>Zero-day Prevention
+                </span>
+            </div>
+
+            <!-- Hero Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10 slide-up">
+                <div class="hero-stat text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-green-400 mb-1">99.7%</div>
+                    <div class="text-sm text-gray-300">Threat Detection</div>
+                </div>
+                <div class="hero-stat text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-blue-400 mb-1">&lt;1ms</div>
+                    <div class="text-sm text-gray-300">Response Time</div>
+                </div>
+                <div class="hero-stat text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-purple-400 mb-1">24/7</div>
+                    <div class="text-sm text-gray-300">Monitoring</div>
+                </div>
+                <div class="hero-stat text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-yellow-400 mb-1">0</div>
+                    <div class="text-sm text-gray-300">False Positives</div>
+                </div>
+            </div>
+
+            <!-- Enhanced CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center slide-up">
+                <a href="https://www.canva.com/design/DAGp8BBEItU/nc9fTJDlaSp2pvMOkGTwpA/edit" target="_blank">
+                    <button
+                        class="pulse-glow bg-blue-600 hover:bg-blue-700 px-10 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105">
+                        <i class="fas fa-presentation mr-2"></i>View Our Presentation
+                    </button>
+                </a>
+                
+                <button
+                    class="border-2 border-white hover:bg-white hover:text-gray-900 px-10 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105">
+                    <i class="fas fa-play mr-2"></i>Watch Demo (Coming soon)
+                    <a href="Cybersecurity and Cybercrime.pdf">
+                        <button
+                            class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 px-10 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105">
+                            <i class="fas fa-rocket mr-2"></i>Get Educated!(PDF)
+                        </button>
+                    </a>
+
+            </div>
+            <div class="w-full flex justify-center py-10">
+             <a href="https://github.com/Securesphere-Ai" target="_blank" class="group block">
+            <div class="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-2xl text-center border border-gray-700 hover:border-purple-500 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/30 cursor-pointer w-80">
+                <div class="text-5xl text-white mb-4 group-hover:scale-110 transition-transform duration-300">
+                <i class="fab fa-github"></i>
+            </div>
+              <div class="text-white font-semibold text-lg mb-1">
+                View Our GitHub Account
+             </div>
+            <div class="text-gray-400 text-sm">View Our projects And Repo</div>
+        </div>
+    </a>
+</div>
+
+
+            <!-- Trust Indicators -->
+            <div class="mt-12 slide-up">
+                <p class="text-gray-400 text-sm mb-4">Our Target organizations And Sectors</p>
+                <div class="flex justify-center items-center space-x-8 opacity-60">
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-building text-2xl"></i>
+                        <span class="text-sm">Enterprises</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-university text-2xl"></i>
+                        <span class="text-sm">Government</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-hospital text-2xl"></i>
+                        <span class="text-sm">Healthcare Sector</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-graduation-cap text-2xl"></i>
+                        <span class="text-sm">Education Sector</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Carousel Section -->
+    <section class="py-20 bg-gray-800/90 backdrop-blur-sm relative overflow-hidden z-10">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/20"></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2
+                    class="text-5xl font-bold mb-4 slide-in bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                    SecureSphere AI in Action</h2>
+                <p class="text-xl text-gray-300 slide-in">Experience our advanced cybersecurity platform</p>
+            </div>
+
+            <div class="relative max-w-4xl mx-auto">
+                <!-- Image Container -->
+                <div class="relative h-96 md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
+
+                    <!-- Image 1 -->
+                    <div class="carousel-image absolute inset-0 opacity-100 transition-opacity duration-1000"
+                        id="image-1">
+                        <img src="securesphere3.jpg" alt="SecureSphere AI Dashboard" class="w-full h-full object-cover">
+                        <div class="absolute bottom-6 left-6 z-20">
+                            <h3 class="text-2xl font-bold text-white mb-2">AI-Powered Dashboard</h3>
+                            <p class="text-gray-200">Real-time threat monitoring and analytics</p>
+                        </div>
+                    </div>
+
+                    <!-- Image 2 -->
+                    <div class="carousel-image absolute inset-0 opacity-0 transition-opacity duration-1000"
+                        id="image-2">
+                        <img src="securesphere2.jpg" alt="SecureSphere AI Analytics" class="w-full h-full object-cover">
+                        <div class="absolute bottom-6 left-6 z-20">
+                            <h3 class="text-2xl font-bold text-white mb-2">Advanced Analytics</h3>
+                            <p class="text-gray-200">Behavioral pattern analysis and threat detection</p>
+                        </div>
+                    </div>
+
+                    <!-- Image 3 -->
+                    <div class="carousel-image absolute inset-0 opacity-0 transition-opacity duration-1000"
+                        id="image-3">
+                        <img src="securesphere1.jpg" alt="SecureSphere AI Security" class="w-full h-full object-cover">
+                        <div class="absolute bottom-6 left-6 z-20">
+                            <h3 class="text-2xl font-bold text-white mb-2">Complete Protection</h3>
+                            <p class="text-gray-200">Comprehensive cybersecurity solution</p>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Dots -->
+                    <div class="absolute bottom-6 right-6 flex space-x-2 z-20">
+                        <button
+                            class="carousel-dot w-3 h-3 rounded-full bg-white opacity-100 transition-opacity duration-300"
+                            data-slide="0"></button>
+                        <button
+                            class="carousel-dot w-3 h-3 rounded-full bg-white opacity-50 transition-opacity duration-300"
+                            data-slide="1"></button>
+                        <button
+                            class="carousel-dot w-3 h-3 rounded-full bg-white opacity-50 transition-opacity duration-300"
+                            data-slide="2"></button>
+                    </div>
+
+                    <!-- Progress Bar -->
+                    <div class="absolute bottom-0 left-0 w-full h-1 bg-black/30 z-20">
+                        <div class="carousel-progress h-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-100 ease-linear"
+                            style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <!-- Feature Highlights -->
+                <div class="grid md:grid-cols-3 gap-6 mt-12">
+                    <div class="text-center p-6 bg-gray-800/50 rounded-xl border border-gray-700">
+                        <div
+                            class="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-eye text-blue-400 text-xl"></i>
+                        </div>
+                        <h4 class="text-lg font-semibold text-white mb-2">Real-time Monitoring</h4>
+                        <p class="text-gray-400 text-sm">24/7 continuous surveillance of your digital infrastructure</p>
+                    </div>
+
+                    <div class="text-center p-6 bg-gray-800/50 rounded-xl border border-gray-700">
+                        <div
+                            class="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-brain text-purple-400 text-xl"></i>
+                        </div>
+                        <h4 class="text-lg font-semibold text-white mb-2">AI Intelligence</h4>
+                        <p class="text-gray-400 text-sm">Machine learning algorithms for predictive threat analysis</p>
+                    </div>
+
+                    <div class="text-center p-6 bg-gray-800/50 rounded-xl border border-gray-700">
+                        <div
+                            class="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-shield-alt text-green-400 text-xl"></i>
+                        </div>
+                        <h4 class="text-lg font-semibold text-white mb-2">Automated Response</h4>
+                        <p class="text-gray-400 text-sm">Instant threat mitigation and security protocol activation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problems Section -->
+    <section class="py-20 bg-gray-900/90 backdrop-blur-sm relative overflow-hidden transition-colors duration-300 z-10">
+        <div class="absolute inset-0 bg-gradient-to-br from-red-900/20 to-orange-900/20"></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2
+                    class="text-5xl font-bold mb-4 slide-in bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
+                    Modern Cybersecurity Challenges</h2>
+                <p class="text-xl text-gray-300 slide-in">Critical threats facing organizations today</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="group relative">
+                    <div
+                        class="challenge-card bg-gray-800/70 backdrop-blur-md p-8 rounded-2xl border border-gray-700 hover:border-red-500 transition-all duration-500 transform hover:-translate-y-3 hover:shadow-2xl hover:shadow-red-500/20 slide-in">
+                        <div
+                            class="absolute top-4 right-4 w-12 h-12 bg-red-500/20 rounded-full flex items-center justify-center">
+                            <div class="w-6 h-6 bg-red-500 rounded-full animate-ping"></div>
+                        </div>
+                        <div class="text-6xl mb-6 text-red-400 group-hover:scale-110 transition-transform duration-300">
+                            🎯</div>
+                        <h3 class="text-2xl font-bold mb-4 text-red-300">Advanced Threat Detection</h3>
+                        <p class="text-gray-300 mb-6 leading-relaxed">Advanced persistent threats and zero-day attacks
+                            bypass traditional security measures, requiring intelligent AI-driven detection systems.</p>
+                        <div class="flex items-center text-red-400 text-sm font-medium">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>
+                            Critical Priority
+                        </div>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div
+                        class="challenge-card bg-gray-800/70 backdrop-blur-md p-8 rounded-2xl border border-gray-700 hover:border-yellow-500 transition-all duration-500 transform hover:-translate-y-3 hover:shadow-2xl hover:shadow-yellow-500/20 slide-in">
+                        <div
+                            class="absolute top-4 right-4 w-12 h-12 bg-yellow-500/20 rounded-full flex items-center justify-center">
+                            <div class="w-6 h-6 bg-yellow-500 rounded-full animate-ping"></div>
+                        </div>
+                        <div
+                            class="text-6xl mb-6 text-yellow-400 group-hover:scale-110 transition-transform duration-300">
+                            🎣</div>
+                        <h3 class="text-2xl font-bold mb-4 text-yellow-300">Smart Phishing Prevention</h3>
+                        <p class="text-gray-300 mb-6 leading-relaxed">Sophisticated social engineering attacks target
+                            human vulnerabilities, demanding smart behavioral analysis and real-time protection.</p>
+                        <div class="flex items-center text-yellow-400 text-sm font-medium">
+                            <i class="fas fa-shield-alt mr-2"></i>
+                            High Priority
+                        </div>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div
+                        class="challenge-card bg-gray-800/70 backdrop-blur-md p-8 rounded-2xl border border-gray-700 hover:border-blue-500 transition-all duration-500 transform hover:-translate-y-3 hover:shadow-2xl hover:shadow-blue-500/20 slide-in">
+                        <div
+                            class="absolute top-4 right-4 w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center">
+                            <div class="w-6 h-6 bg-blue-500 rounded-full animate-ping"></div>
+                        </div>
+                        <div
+                            class="text-6xl mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-300">
+                            📊</div>
+                        <h3 class="text-2xl font-bold mb-4 text-blue-300">Behavioral Anomaly Detection</h3>
+                        <p class="text-gray-300 mb-6 leading-relaxed">Insider threats and subtle behavioral changes
+                            require continuous monitoring and machine learning-based anomaly identification.</p>
+                        <div class="flex items-center text-blue-400 text-sm font-medium">
+                            <i class="fas fa-eye mr-2"></i>
+                            Continuous Monitoring
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-800/90 backdrop-blur-sm relative overflow-hidden z-10">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-purple-900/30"></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="slide-in">
+                    <div class="mb-8">
+                        <h2
+                            class="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                            About SecureSphere AI</h2>
+                        <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+                    </div>
+                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                        Welcome to SecureSphere AI — where innovation meets intelligence.
+                        We specialize in harnessing the power of Machine Learning and Artificial Intelligence to detect, prevent, and respond to cyber threats in real time. 
+                        Our mission is to empower individuals, organizations, and institutions with cutting-edge cybersecurity education, tools, and solutions.
+                        We believe the future of cybersecurity lies in data-driven defense and we're here to help you be part of it.
+                        
+                    </p>
+                    <div class="grid grid-cols-2 gap-8 mb-8">
+                        <div
+                            class="group text-center p-6 bg-gradient-to-br from-gray-800/70 to-gray-900/70 backdrop-blur-md rounded-xl border border-gray-700 hover:border-green-500 transition-all duration-300 hover:scale-105">
+                            <div
+                                class="text-4xl font-bold text-green-400 mb-2 group-hover:scale-110 transition-transform">
+                                99.7%</div>
+                            <div class="text-gray-400 font-medium">Threat Detection</div>
+                            <div class="text-xs text-green-400 mt-1">Industry Leading</div>
+                        </div>
+                        <div
+                            class="group text-center p-6 bg-gradient-to-br from-gray-800/70 to-gray-900/70 backdrop-blur-md rounded-xl border border-gray-700 hover:border-blue-500 transition-all duration-300 hover:scale-105">
+                            <div
+                                class="text-4xl font-bold text-blue-400 mb-2 group-hover:scale-110 transition-transform">
+                                &lt;1ms</div>
+                            <div class="text-gray-400 font-medium">Response Time</div>
+                            <div class="text-xs text-blue-400 mt-1">Lightning Fast</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="flex items-center space-x-2 text-green-400">
+                            <i class="fas fa-check-circle"></i>
+                            <span class="text-sm">24/7 Monitoring</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-blue-400">
+                            <i class="fas fa-check-circle"></i>
+                            <span class="text-sm">Real-time Protection</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-in">
+                    <div class="relative">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur-xl opacity-30 animate-pulse">
+                        </div>
+                        <div
+                            class="relative bg-gray-800/70 backdrop-blur-md p-10 rounded-2xl border border-gray-700 overflow-hidden">
+                            <div class="absolute inset-0 opacity-20">
+                                <img src="securesphere1.jpg" alt="SecureSphere AI Technology"
+                                    class="w-full h-full object-cover rounded-2xl">
+                            </div>
+                            <div class="relative z-10">
+                                <div class="grid grid-cols-3 gap-6 text-center mb-8">
+                                    <div class="group">
+                                        <div
+                                            class="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-blue-500/30 transition-colors">
+                                            <i
+                                                class="fas fa-brain text-2xl text-blue-400 group-hover:scale-110 transition-transform"></i>
+                                        </div>
+                                        <div class="text-sm font-medium text-blue-300">Neural Networks</div>
+                                    </div>
+                                    <div class="group">
+                                        <div
+                                            class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-green-500/30 transition-colors">
+                                            <i
+                                                class="fas fa-chart-line text-2xl text-green-400 group-hover:scale-110 transition-transform"></i>
+                                        </div>
+                                        <div class="text-sm font-medium text-green-300">Behavioral Analytics</div>
+                                    </div>
+                                    <div class="group">
+                                        <div
+                                            class="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-purple-500/30 transition-colors">
+                                            <i
+                                                class="fas fa-shield-alt text-2xl text-purple-400 group-hover:scale-110 transition-transform"></i>
+                                        </div>
+                                        <div class="text-sm font-medium text-purple-300">Adaptive Response</div>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <div
+                                        class="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-3 rounded-full text-white font-medium">
+                                        <i class="fas fa-rocket"></i>
+                                        <span>Powered by Advanced AI</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section class="py-20 bg-gray-900/90 backdrop-blur-sm relative overflow-hidden z-10">
+        <div class="absolute inset-0 bg-gradient-to-br from-green-900/20 to-blue-900/20"></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2
+                    class="text-5xl font-bold mb-4 slide-in bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+                    Technologies & Tools</h2>
+                <p class="text-xl text-gray-300 slide-in">Cutting-edge technologies powering our AI platform</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+                <div class="group relative">
+                    <div
+                        class="tech-card bg-gray-800/70 backdrop-blur-md p-8 rounded-2xl text-center border border-gray-700 hover:border-yellow-500 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-yellow-500/20 slide-in">
+                        <div class="absolute top-2 right-2 w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                        <div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">🐍</div>
+                        <div class="font-bold text-lg mb-2">Python</div>
+                        <div class="text-xs text-gray-400">Core Language</div>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div
+                        class="tech-card bg-gray-800/70 backdrop-blur-md p-8 rounded-2xl text-center border border-gray-700 hover:border-orange-500 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-orange-500/20 slide-in">
+                        <div class="absolute top-2 right-2 w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                        <div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">🧠</div>
+                        <div class="font-bold text-lg mb-2">TensorFlow</div>
+                        <div class="text-xs text-gray-400">Deep Learning</div>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div
+                        class="tech-card bg-gray-800/70 backdrop-blur-md p-8 rounded-2xl text-center border border-gray-700 hover:border-red-500 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/20 slide-in">
+                        <div class="absolute top-2 right-2 w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                        <div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">🔥</div>
+                        <div class="font-bold text-lg mb-2">PyTorch</div>
+                        <div class="text-xs text-gray-400">Neural Networks</div>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div
+                        class="tech-card bg-gray-800/70 backdrop-blur-md p-8 rounded-2xl text-center border border-gray-700 hover:border-blue-500 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/20 slide-in">
+                        <div class="absolute top-2 right-2 w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                        <div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">📊</div>
+                        <div class="font-bold text-lg mb-2">Scikit-learn</div>
+                        <div class="text-xs text-gray-400">ML Algorithms</div>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div
+                        class="tech-card bg-gray-800/70 backdrop-blur-md p-8 rounded-2xl text-center border border-gray-700 hover:border-purple-500 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 slide-in">
+                        <div class="absolute top-2 right-2 w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                        <div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">🐼</div>
+                        <div class="font-bold text-lg mb-2">Pandas</div>
+                        <div class="text-xs text-gray-400">Data Analysis</div>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <div
+                        class="tech-card bg-gray-800/70 backdrop-blur-md p-8 rounded-2xl text-center border border-gray-700 hover:border-cyan-500 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-cyan-500/20 slide-in">
+                        <div class="absolute top-2 right-2 w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                        <div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">🔍</div>
+                        <div class="font-bold text-lg mb-2">Wireshark</div>
+                        <div class="text-xs text-gray-400">Network Analysis</div>
+                    </div>
+                </div>
+                <!-- Matplotlib -->
+                <div class="group relative">
+                    <div
+                        class="tech-card bg-gray-800/70 backdrop-blur-md p-8 rounded-2xl text-center border border-gray-700 hover:border-purple-500 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 slide-in">
+                        <div class="absolute top-2 right-2 w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                        <div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">📊</div>
+                        <div class="font-bold text-lg mb-2">Matplotlib</div>
+                        <div class="text-xs text-gray-400">Data Visualization</div>
+                    </div>
+                </div>
+
+                <!-- Kali Linux -->
+                <div class="group relative">
+                    <div
+                        class="tech-card bg-gray-800/70 backdrop-blur-md p-8 rounded-2xl text-center border border-gray-700 hover:border-purple-500 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 slide-in">
+                        <div class="absolute top-2 right-2 w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                        <div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">🐉</div>
+                        <div class="font-bold text-lg mb-2">Kali Linux</div>
+                        <div class="text-xs text-gray-400">Penetration Testing OS</div>
+                    </div>
+                </div>
+
+                <!-- NumPy -->
+                <div class="group relative">
+                    <div
+                        class="tech-card bg-gray-800/70 backdrop-blur-md p-8 rounded-2xl text-center border border-gray-700 hover:border-purple-500 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 slide-in">
+                        <div class="absolute top-2 right-2 w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                        <div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">🔢</div>
+                        <div class="font-bold text-lg mb-2">NumPy</div>
+                        <div class="text-xs text-gray-400">Numerical Computing</div>
+                    </div>
+                </div>
+
+                <!-- Scapy -->
+                <div class="group relative">
+                    <div
+                        class="tech-card bg-gray-800/70 backdrop-blur-md p-8 rounded-2xl text-center border border-gray-700 hover:border-purple-500 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 slide-in">
+                        <div class="absolute top-2 right-2 w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                        <div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">📡</div>
+                        <div class="font-bold text-lg mb-2">Scapy</div>
+                        <div class="text-xs text-gray-400">Packet Sniffing</div>
+                    </div>
+                </div>
+                <!-- Flask -->
+                <div class="group relative">
+                    <div
+                        class="tech-card bg-gray-800/70 backdrop-blur-md p-8 rounded-2xl text-center border border-gray-700 hover:border-purple-500 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 slide-in">
+                        <div class="absolute top-2 right-2 w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                        <div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">🌶️</div>
+                        <div class="font-bold text-lg mb-2">Flask</div>
+                        <div class="text-xs text-gray-400">Python Web Framework</div>
+                    </div>
+                </div>
+
+                <!-- Jupyter Notebook -->
+                <div class="group relative">
+                    <div
+                        class="tech-card bg-gray-800/70 backdrop-blur-md p-8 rounded-2xl text-center border border-gray-700 hover:border-purple-500 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 slide-in">
+                        <div class="absolute top-2 right-2 w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                        <div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">📓</div>
+                        <div class="font-bold text-lg mb-2">Jupyter</div>
+                        <div class="text-xs text-gray-400">Interactive Coding</div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="mt-16 text-center">
+                <div
+                    class="inline-flex items-center space-x-4 bg-gradient-to-r from-gray-800 to-gray-900 px-8 py-4 rounded-full border border-gray-700">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                        <span class="text-sm text-gray-300">All systems operational</span>
+                    </div>
+                    <div class="w-px h-6 bg-gray-600"></div>
+                    <div class="text-sm text-gray-400">Latest versions deployed</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-20 bg-gray-800/90 backdrop-blur-sm relative overflow-hidden z-10">
+        <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 to-blue-900/20"></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-20">
+                <h2
+                    class="text-5xl font-bold mb-4 slide-in bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                    How It Works</h2>
+                <p class="text-xl text-gray-300 slide-in">Our AI-powered security pipeline in action</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-12 relative">
+                <!-- Connection Lines -->
+                <div
+                    class="hidden md:block absolute top-24 left-1/3 w-1/3 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transform translate-y-1/2">
+                </div>
+                <div
+                    class="hidden md:block absolute top-24 right-1/3 w-1/3 h-0.5 bg-gradient-to-r from-purple-500 to-green-500 transform translate-y-1/2">
+                </div>
+
+                <div class="group text-center slide-in relative">
+                    <div class="relative mb-8">
+                        <div
+                            class="w-24 h-24 bg-gradient-to-br from-blue-600/80 to-blue-800/80 backdrop-blur-md rounded-full flex items-center justify-center mx-auto shadow-2xl shadow-blue-500/30 group-hover:shadow-blue-500/50 transition-all duration-300">
+                            <i
+                                class="fas fa-database text-3xl text-white group-hover:scale-110 transition-transform"></i>
+                        </div>
+                        <div
+                            class="absolute -top-2 -right-2 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                            1</div>
+                        <div class="absolute inset-0 bg-blue-500/20 rounded-full animate-ping"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-blue-300">Data Collection & Preprocessing</h3>
+                    <p class="text-gray-300 leading-relaxed mb-6">Continuous monitoring and collection of network
+                        traffic, user behavior, and system logs for comprehensive analysis.</p>
+                    <div class="flex justify-center space-x-4 text-sm">
+                        <span class="bg-blue-500/20 px-3 py-1 rounded-full text-blue-300">Network Traffic</span>
+                        <span class="bg-blue-500/20 px-3 py-1 rounded-full text-blue-300">System Logs</span>
+                    </div>
+                </div>
+
+                <div class="group text-center slide-in relative">
+                    <div class="relative mb-8">
+                        <div
+                            class="w-24 h-24 bg-gradient-to-br from-purple-600/80 to-purple-800/80 backdrop-blur-md rounded-full flex items-center justify-center mx-auto shadow-2xl shadow-purple-500/30 group-hover:shadow-purple-500/50 transition-all duration-300">
+                            <i class="fas fa-brain text-3xl text-white group-hover:scale-110 transition-transform"></i>
+                        </div>
+                        <div
+                            class="absolute -top-2 -right-2 w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                            2</div>
+                        <div class="absolute inset-0 bg-purple-500/20 rounded-full animate-ping"
+                            style="animation-delay: 0.5s;"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-purple-300">AI Model Processing</h3>
+                    <p class="text-gray-300 leading-relaxed mb-6">Advanced machine learning algorithms analyze patterns,
+                        detect anomalies, and identify potential threats in real-time.</p>
+                    <div class="flex justify-center space-x-4 text-sm">
+                        <span class="bg-purple-500/20 px-3 py-1 rounded-full text-purple-300">Pattern Analysis</span>
+                        <span class="bg-purple-500/20 px-3 py-1 rounded-full text-purple-300">Threat Detection</span>
+                    </div>
+                </div>
+
+                <div class="group text-center slide-in relative">
+                    <div class="relative mb-8">
+                        <div
+                            class="w-24 h-24 bg-gradient-to-br from-green-600/80 to-green-800/80 backdrop-blur-md rounded-full flex items-center justify-center mx-auto shadow-2xl shadow-green-500/30 group-hover:shadow-green-500/50 transition-all duration-300">
+                            <i
+                                class="fas fa-shield-alt text-3xl text-white group-hover:scale-110 transition-transform"></i>
+                        </div>
+                        <div
+                            class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                            3</div>
+                        <div class="absolute inset-0 bg-green-500/20 rounded-full animate-ping"
+                            style="animation-delay: 1s;"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-green-300">Real-time Response & Mitigation</h3>
+                    <p class="text-gray-300 leading-relaxed mb-6">Automated threat response and mitigation actions to
+                        neutralize risks before they impact your systems.</p>
+                    <div class="flex justify-center space-x-4 text-sm">
+                        <span class="bg-green-500/20 px-3 py-1 rounded-full text-green-300">Auto Response</span>
+                        <span class="bg-green-500/20 px-3 py-1 rounded-full text-green-300">Risk Mitigation</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <div
+                    class="inline-flex items-center space-x-4 bg-gradient-to-r from-gray-800 to-gray-900 px-8 py-4 rounded-full border border-gray-700">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                        <span class="text-sm text-gray-300">Processing 1M+ events/second</span>
+                    </div>
+                    <div class="w-px h-6 bg-gray-600"></div>
+                    <div class="text-sm text-gray-400">&lt;1ms average response time</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="py-20 bg-gray-900/90 backdrop-blur-sm relative overflow-hidden z-10">
+        <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-pink-900/20"></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-20">
+                <h2
+                    class="text-5xl font-bold mb-4 slide-in bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    Our Solutions</h2>
+                <p class="text-xl text-gray-300 slide-in">Comprehensive cybersecurity solutions for modern threats</p>
+            </div>
+            <div class="grid lg:grid-cols-3 gap-10">
+                <div class="group relative">
+                    <div
+                        class="solution-card bg-gray-800 p-10 rounded-2xl border border-gray-700 hover:border-blue-500 transition-all duration-500 transform hover:-translate-y-3 hover:shadow-2xl hover:shadow-blue-500/20 slide-in h-full">
+                        <div
+                            class="absolute top-4 right-4 w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center">
+                            <div class="w-6 h-6 bg-blue-500 rounded-full animate-pulse"></div>
+                        </div>
+                        <div class="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">🛡️</div>
+                        <h3 class="text-2xl font-bold mb-6 text-blue-300">Advanced Threat Protection</h3>
+                        <ul class="text-gray-300 space-y-4 mb-8">
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-blue-400"></i>
+                                <span>Zero-day attack prevention</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-blue-400"></i>
+                                <span>Malware detection & removal</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-blue-400"></i>
+                                <span>Advanced persistent threat monitoring</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-blue-400"></i>
+                                <span>Real-time threat intelligence</span>
+                            </li>
+                        </ul>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="bg-blue-500/20 px-3 py-1 rounded-full text-blue-300">Enterprise Ready</span>
+                            <span class="text-blue-400 font-medium">99.9% Effective</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative">
+                    <div
+                        class="solution-card bg-gray-800 p-10 rounded-2xl border border-gray-700 hover:border-yellow-500 transition-all duration-500 transform hover:-translate-y-3 hover:shadow-2xl hover:shadow-yellow-500/20 slide-in h-full">
+                        <div
+                            class="absolute top-4 right-4 w-12 h-12 bg-yellow-500/20 rounded-full flex items-center justify-center">
+                            <div class="w-6 h-6 bg-yellow-500 rounded-full animate-pulse"></div>
+                        </div>
+                        <div class="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">📧</div>
+                        <h3 class="text-2xl font-bold mb-6 text-yellow-300">Smart Phishing Defense</h3>
+                        <ul class="text-gray-300 space-y-4 mb-8">
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-yellow-400"></i>
+                                <span>Social engineering detection</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-yellow-400"></i>
+                                <span>Email security scanning</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-yellow-400"></i>
+                                <span>URL reputation analysis</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-yellow-400"></i>
+                                <span>User behavior monitoring</span>
+                            </li>
+                        </ul>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="bg-yellow-500/20 px-3 py-1 rounded-full text-yellow-300">AI-Powered</span>
+                            <span class="text-yellow-400 font-medium">95% Accuracy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative">
+                    <div
+                        class="solution-card bg-gray-800 p-10 rounded-2xl border border-gray-700 hover:border-green-500 transition-all duration-500 transform hover:-translate-y-3 hover:shadow-2xl hover:shadow-green-500/20 slide-in h-full">
+                        <div
+                            class="absolute top-4 right-4 w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center">
+                            <div class="w-6 h-6 bg-green-500 rounded-full animate-pulse"></div>
+                        </div>
+                        <div class="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">📈</div>
+                        <h3 class="text-2xl font-bold mb-6 text-green-300">Anomaly Intelligence</h3>
+                        <ul class="text-gray-300 space-y-4 mb-8">
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-green-400"></i>
+                                <span>Behavioral pattern analysis</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-green-400"></i>
+                                <span>Insider threat detection</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-green-400"></i>
+                                <span>Network anomaly monitoring</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-green-400"></i>
+                                <span>Predictive risk assessment</span>
+                            </li>
+                        </ul>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="bg-green-500/20 px-3 py-1 rounded-full text-green-300">Machine Learning</span>
+                            <span class="text-green-400 font-medium">Real-time</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <div
+                    class="inline-flex items-center space-x-6 bg-gradient-to-r from-gray-800 to-gray-900 px-10 py-6 rounded-2xl border border-gray-700">
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-shield-alt text-2xl text-blue-400"></i>
+                        <div>
+                            <div class="text-lg font-bold text-white">Complete Protection</div>
+                            <div class="text-sm text-gray-400">All solutions included</div>
+                        </div>
+                    </div>
+                    <div class="w-px h-12 bg-gray-600"></div>
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-clock text-2xl text-green-400"></i>
+                        <div>
+                            <div class="text-lg font-bold text-white">24/7 Support</div>
+                            <div class="text-sm text-gray-400">Always available</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-20 bg-gray-800/90 backdrop-blur-sm relative overflow-hidden z-10">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-purple-900/30"></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2
+                    class="text-5xl font-bold mb-4 slide-in bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                    Meet Our Team</h2>
+                <p class="text-xl text-gray-300 slide-in">The brilliant minds behind SecureSphere AI</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="group relative">
+                    <div
+                        class="team-card bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-blue-500 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/20 slide-in">
+                        <div class="relative mb-6">
+                            <div
+                                class="w-40 h-40 mx-auto rounded-full overflow-hidden border-4 border-blue-500 group-hover:border-blue-400 transition-colors duration-300">
+                                <img src="samptah.jpg">
+                            </div>
+                            <div
+                                class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-gray-800 animate-pulse">
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-center">Samuel Mbathi</h3>
+                        <p class="text-blue-400 mb-4 text-center font-medium">Lead AI Engineer</p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="https://linkedin.com/in/samuel-mbathi" target="_blank"
+                                class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors duration-300 hover:scale-110 transform">
+                                <i class="fab fa-linkedin text-white"></i>
+                            </a>
+                            <a href="mailto:samuel@securesphere.ai"
+                                class="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center hover:bg-gray-500 transition-colors duration-300 hover:scale-110 transform">
+                                <i class="fas fa-envelope text-white"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative">
+                    <div
+                        class="team-card bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-green-500 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-green-500/20 slide-in">
+                        <div class="relative mb-6">
+                            <div
+                                class="w-40 h-40 mx-auto rounded-full overflow-hidden border-4 border-green-500 group-hover:border-green-400 transition-colors duration-300">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
+                                    alt="Peterson Kinyanjui" class="w-full h-full object-cover">
+                            </div>
+                            <div
+                                class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-gray-800 animate-pulse">
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-center">Peterson Kinyanjui</h3>
+                        <p class="text-green-400 mb-4 text-center font-medium">Cybersecurity Specialist</p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="https://linkedin.com/in/peterson-kinyanjui" target="_blank"
+                                class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors duration-300 hover:scale-110 transform">
+                                <i class="fab fa-linkedin text-white"></i>
+                            </a>
+                            <a href="mailto:peterson@securesphere.ai"
+                                class="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center hover:bg-gray-500 transition-colors duration-300 hover:scale-110 transform">
+                                <i class="fas fa-envelope text-white"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative">
+                    <div
+                        class="team-card bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-purple-500 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 slide-in">
+                        <div class="relative mb-6">
+                            <div
+                                class="w-40 h-40 mx-auto rounded-full overflow-hidden border-4 border-purple-500 group-hover:border-purple-400 transition-colors duration-300">
+                                <img src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?w=150&h=150&fit=crop&crop=face"
+                                    alt="Shadrack Lerisa" class="w-full h-full object-cover">
+                            </div>
+                            <div
+                                class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-gray-800 animate-pulse">
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-center">Shadrack Lerisa</h3>
+                        <p class="text-purple-400 mb-4 text-center font-medium">Data Scientist</p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="https://linkedin.com/in/shadrack-lerisa" target="_blank"
+                                class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors duration-300 hover:scale-110 transform">
+                                <i class="fab fa-linkedin text-white"></i>
+                            </a>
+                            <a href="mailto:shadrack@securesphere.ai"
+                                class="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center hover:bg-gray-500 transition-colors duration-300 hover:scale-110 transform">
+                                <i class="fas fa-envelope text-white"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative">
+                    <div
+                        class="team-card bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 hover:border-orange-500 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-orange-500/20 slide-in">
+                        <div class="relative mb-6">
+                            <div
+                                class="w-40 h-40 mx-auto rounded-full overflow-hidden border-4 border-orange-500 group-hover:border-orange-400 transition-colors duration-300">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face"
+                                    alt="Jalex" class="w-full h-full object-cover">
+                            </div>
+                            <div
+                                class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-gray-800 animate-pulse">
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-center">Jalex</h3>
+                        <p class="text-orange-400 mb-4 text-center font-medium">Product Manager</p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="https://linkedin.com/in/jalex" target="_blank"
+                                class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors duration-300 hover:scale-110 transform">
+                                <i class="fab fa-linkedin text-white"></i>
+                            </a>
+                            <a href="mailto:jalex@securesphere.ai"
+                                class="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center hover:bg-gray-500 transition-colors duration-300 hover:scale-110 transform">
+                                <i class="fas fa-envelope text-white"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative">
+                    <div
+                        class="team-card bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 hover:border-cyan-500 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-cyan-500/20 slide-in">
+                        <div class="relative mb-6">
+                            <div
+                                class="w-40 h-40 mx-auto rounded-full overflow-hidden border-4 border-cyan-500 group-hover:border-cyan-400 transition-colors duration-300">
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face"
+                                    alt="Sarah Chen" class="w-full h-full object-cover">
+                            </div>
+                            <div
+                                class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-gray-800 animate-pulse">
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-center">Sarah Chen</h3>
+                        <p class="text-cyan-400 mb-4 text-center font-medium">ML Research Engineer</p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="https://linkedin.com/in/sarah-chen" target="_blank"
+                                class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors duration-300 hover:scale-110 transform">
+                                <i class="fab fa-linkedin text-white"></i>
+                            </a>
+                            <a href="mailto:sarah@securesphere.ai"
+                                class="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center hover:bg-gray-500 transition-colors duration-300 hover:scale-110 transform">
+                                <i class="fas fa-envelope text-white"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative">
+                    <div
+                        class="team-card bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 hover:border-pink-500 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-pink-500/20 slide-in">
+                        <div class="relative mb-6">
+                            <div
+                                class="w-40 h-40 mx-auto rounded-full overflow-hidden border-4 border-pink-500 group-hover:border-pink-400 transition-colors duration-300">
+                                <img src="https://images.unsplash.com/photo-1507101105822-7472b28e22ac?w=150&h=150&fit=crop&crop=face"
+                                    alt="Marcus Johnson" class="w-full h-full object-cover">
+                            </div>
+                            <div
+                                class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-gray-800 animate-pulse">
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-center">Marcus Johnson</h3>
+                        <p class="text-pink-400 mb-4 text-center font-medium">Security Architect</p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="https://linkedin.com/in/marcus-johnson" target="_blank"
+                                class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors duration-300 hover:scale-110 transform">
+                                <i class="fab fa-linkedin text-white"></i>
+                            </a>
+                            <a href="mailto:marcus@securesphere.ai"
+                                class="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center hover:bg-gray-500 transition-colors duration-300 hover:scale-110 transform">
+                                <i class="fas fa-envelope text-white"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative">
+                    <div
+                        class="team-card bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 hover:border-yellow-500 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-yellow-500/20 slide-in">
+                        <div class="relative mb-6">
+                            <div
+                                class="w-28 h-28 mx-auto rounded-full overflow-hidden border-4 border-yellow-500 group-hover:border-yellow-400 transition-colors duration-300">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
+                                    alt="Emily Rodriguez" class="w-full h-full object-cover">
+                            </div>
+                            <div
+                                class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-gray-800 animate-pulse">
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-center">Emily Rodriguez</h3>
+                        <p class="text-yellow-400 mb-4 text-center font-medium">DevOps Engineer</p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="https://linkedin.com/in/emily-rodriguez" target="_blank"
+                                class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors duration-300 hover:scale-110 transform">
+                                <i class="fab fa-linkedin text-white"></i>
+                            </a>
+                            <a href="mailto:emily@securesphere.ai"
+                                class="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center hover:bg-gray-500 transition-colors duration-300 hover:scale-110 transform">
+                                <i class="fas fa-envelope text-white"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative">
+                    <div
+                        class="team-card bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 hover:border-indigo-500 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-500/20 slide-in">
+                        <div class="relative mb-6">
+                            <div
+                                class="w-28 h-28 mx-auto rounded-full overflow-hidden border-4 border-indigo-500 group-hover:border-indigo-400 transition-colors duration-300">
+                                <img src="https://images.unsplash.com/photo-1463453091185-61582044d556?w=150&h=150&fit=crop&crop=face"
+                                    alt="David Kim" class="w-full h-full object-cover">
+                            </div>
+                            <div
+                                class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-gray-800 animate-pulse">
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-center">David Kim</h3>
+                        <p class="text-indigo-400 mb-4 text-center font-medium">Frontend Developer</p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="https://linkedin.com/in/david-kim" target="_blank"
+                                class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors duration-300 hover:scale-110 transform">
+                                <i class="fab fa-linkedin text-white"></i>
+                            </a>
+                            <a href="mailto:david@securesphere.ai"
+                                class="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center hover:bg-gray-500 transition-colors duration-300 hover:scale-110 transform">
+                                <i class="fas fa-envelope text-white"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900/90 backdrop-blur-sm relative overflow-hidden z-10">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/20"></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2
+                    class="text-5xl font-bold mb-4 slide-in bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                    Get In Touch</h2>
+                <p class="text-xl text-gray-300 slide-in">Ready to secure your digital infrastructure? Let's talk!</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16 items-start">
+                <!-- Contact Information -->
+                <div class="slide-in">
+                    <div class="mb-12">
+                        <h3 class="text-3xl font-bold mb-6 text-white">Contact Information</h3>
+                        <p class="text-gray-300 text-lg mb-8 leading-relaxed">
+                            Have questions about our cybersecurity solutions? Need support or want to discuss a custom
+                            implementation?
+                            We're here to help secure your digital future.
+                        </p>
+                    </div>
+
+                    <!-- Contact Cards -->
+                    <div class="space-y-6">
+                        <div
+                            class="group bg-gray-800/70 backdrop-blur-md p-6 rounded-xl border border-gray-700 hover:border-blue-500 transition-all duration-300 hover:scale-105">
+                            <div class="flex items-center space-x-4">
+                                <div
+                                    class="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center group-hover:bg-blue-500/30 transition-colors">
+                                    <i
+                                        class="fas fa-envelope text-blue-400 text-xl group-hover:scale-110 transition-transform"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-white mb-1">Email Us</h4>
+                                    <a href="mailto:samuelptah254@gmail.com"
+                                        class="text-blue-400 hover:text-blue-300 transition-colors">
+                                        samuelptah254@gmail.com
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="group bg-gray-800/70 backdrop-blur-md p-6 rounded-xl border border-gray-700 hover:border-green-500 transition-all duration-300 hover:scale-105">
+                            <div class="flex items-center space-x-4">
+                                <div
+                                    class="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center group-hover:bg-green-500/30 transition-colors">
+                                    <i
+                                        class="fas fa-phone text-green-400 text-xl group-hover:scale-110 transition-transform"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-white mb-1">Call Us</h4>
+                                    <a href="tel:+254746015682"
+                                        class="text-green-400 hover:text-green-300 transition-colors">
+                                        +254 746 015 682
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="group bg-gray-800/70 backdrop-blur-md p-6 rounded-xl border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:scale-105">
+                            <div class="flex items-center space-x-4">
+                                <div
+                                    class="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center group-hover:bg-purple-500/30 transition-colors">
+                                    <i
+                                        class="fas fa-clock text-purple-400 text-xl group-hover:scale-110 transition-transform"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-white mb-1">Support Hours</h4>
+                                    <p class="text-purple-400">24/7 Emergency Support</p>
+                                    <p class="text-gray-400 text-sm">Business Hours: 8AM - 6PM EAT</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="mt-12 grid grid-cols-2 gap-6">
+                        <div
+                            class="text-center p-6 bg-gradient-to-br from-gray-800/70 to-gray-900/70 backdrop-blur-md rounded-xl border border-gray-700">
+                            <div class="text-3xl font-bold text-blue-400 mb-2">&lt;1hr</div>
+                            <div class="text-gray-400 text-sm">Response Time</div>
+                        </div>
+                        <div
+                            class="text-center p-6 bg-gradient-to-br from-gray-800/70 to-gray-900/70 backdrop-blur-md rounded-xl border border-gray-700">
+                            <div class="text-3xl font-bold text-green-400 mb-2">24/7</div>
+                            <div class="text-gray-400 text-sm">Support Available</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="slide-in">
+                    <div class="bg-gray-800/70 backdrop-blur-md p-8 rounded-2xl border border-gray-700">
+                        <h3 class="text-2xl font-bold mb-6 text-white">Send us a Message</h3>
+
+                        <form id="contact-form" action="https://formsubmit.co/samuelptah254@gmail.com" method="POST">
+                            <input type="text" name="_honey" style="display:none">
+                            <input type="hidden" name="_captcha" value="false">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="firstName" class="block text-sm font-medium text-gray-300 mb-2">First
+                                        Name *</label>
+                                    <input type="text" id="firstName" name="firstName" required
+                                        class="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300"
+                                        placeholder="John">
+                                </div>
+                                <div>
+                                    <label for="lastName" class="block text-sm font-medium text-gray-300 mb-2">Last Name
+                                        *</label>
+                                    <input type="text" id="lastName" name="lastName" required
+                                        class="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300"
+                                        placeholder="Doe">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email Address
+                                    *</label>
+                                <input type="email" id="email" name="email" required
+                                    class="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300"
+                                    placeholder="john@example.com">
+                            </div>
+
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-300 mb-2">Phone
+                                    Number</label>
+                                <input type="tel" id="phone" name="phone"
+                                    class="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300"
+                                    placeholder="+1 (555) 123-4567">
+                            </div>
+
+                            <div>
+                                <label for="subject" class="block text-sm font-medium text-gray-300 mb-2">Subject
+                                    *</label>
+                                <select id="subject" name="subject" required
+                                    class="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300">
+                                    <option value="">Select a subject</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="demo">Request Demo</option>
+                                    <option value="support">Technical Support</option>
+                                    <option value="partnership">Partnership Opportunity</option>
+                                    <option value="pricing">Pricing Information</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message
+                                    *</label>
+                                <textarea id="message" name="message" rows="5" required
+                                    class="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 resize-none"
+                                    placeholder="Tell us about your cybersecurity needs or how we can help you..."></textarea>
+                            </div>
+
+                            <div class="flex items-center space-x-3">
+                                <input type="checkbox" id="privacy" name="privacy" required
+                                    class="w-4 h-4 text-blue-600 bg-gray-700 border-gray-600 rounded focus:ring-blue-500 focus:ring-2">
+                                <label for="privacy" class="text-sm text-gray-300">
+                                    I agree to the <a href="#"
+                                        class="text-blue-400 hover:text-blue-300 transition-colors">Privacy Policy</a>
+                                    and
+                                    <a href="#" class="text-blue-400 hover:text-blue-300 transition-colors">Terms of
+                                        Service</a> *
+                                </label>
+                            </div>
+
+                            <button type="submit" id="submit-btn"
+                                class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30 flex items-center justify-center space-x-2">
+                                <i class="fas fa-paper-plane"></i>
+                                <span>Send Message</span>
+                            </button>
+                        </form>
+
+                        <!-- Success/Error Messages -->
+                        <div id="form-message" class="mt-4 p-4 rounded-lg hidden">
+                            <div id="message-content" class="flex items-center space-x-2">
+                                <i id="message-icon"></i>
+                                <span id="message-text"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900/90 backdrop-blur-sm py-12 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center space-x-2 mb-6">
+                <i class="fas fa-shield-alt text-2xl text-blue-400"></i>
+                <span class="text-2xl font-bold">SecureSphere AI</span>
+            </div>
+            <p class="text-gray-400 mb-6">Protecting your digital world with intelligent cybersecurity solutions.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                    <i class="fab fa-twitter text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                    <i class="fab fa-linkedin text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-gray-500">
+                <p>&copy; 2024 SecureSphere AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Matrix background effect
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
+        const matrixArray = matrix.split("");
+
+        const fontSize = 10;
+        const columns = canvas.width / fontSize;
+
+        const drops = [];
+        for (let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#0F4';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = matrixArray[Math.floor(Math.random() * matrixArray.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw, 35);
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.slide-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Resize canvas on window resize
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Scroll progress bar
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.getElementById('scroll-progress');
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.offsetHeight;
+            const winHeight = window.innerHeight;
+            const scrollPercent = scrollTop / (docHeight - winHeight);
+            const scrollPercentRounded = Math.round(scrollPercent * 100);
+
+            scrollProgress.style.width = scrollPercentRounded + '%';
+        });
+
+        // Rotating hero messages
+        const messages = [
+            'Advanced Cybersecurity Platform',
+            'AI-Powered Threat Detection',
+            'Real-time Security Monitoring',
+            'Next-Gen Protection System'
+        ];
+
+        let currentMessageIndex = 0;
+        const rotatingText = document.getElementById('rotating-text');
+
+        function rotateMessage() {
+            rotatingText.style.opacity = '0';
+            rotatingText.style.transform = 'translateY(10px)';
+
+            setTimeout(() => {
+                currentMessageIndex = (currentMessageIndex + 1) % messages.length;
+                rotatingText.textContent = messages[currentMessageIndex];
+                rotatingText.style.opacity = '1';
+                rotatingText.style.transform = 'translateY(0)';
+            }, 300);
+        }
+
+        // Start rotation after 2 seconds, then every 3 seconds
+        setTimeout(() => {
+            setInterval(rotateMessage, 3000);
+        }, 2000);
+
+        // Image Carousel functionality
+        let currentSlide = 0;
+        const totalSlides = 3;
+        const slideInterval = 3000; // 3 seconds
+        let carouselTimer;
+        let progressTimer;
+
+        const carouselImages = document.querySelectorAll('.carousel-image');
+        const carouselDots = document.querySelectorAll('.carousel-dot');
+        const progressBar = document.querySelector('.carousel-progress');
+
+        function showSlide(index) {
+            // Hide all images
+            carouselImages.forEach(img => {
+                img.style.opacity = '0';
+            });
+
+            // Show current image
+            carouselImages[index].style.opacity = '1';
+
+            // Update dots
+            carouselDots.forEach((dot, i) => {
+                dot.style.opacity = i === index ? '1' : '0.5';
+            });
+
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            const next = (currentSlide + 1) % totalSlides;
+            showSlide(next);
+        }
+
+        function startCarousel() {
+            // Reset progress bar
+            progressBar.style.width = '0%';
+
+            // Animate progress bar
+            progressTimer = setInterval(() => {
+                const currentWidth = parseFloat(progressBar.style.width) || 0;
+                if (currentWidth >= 100) {
+                    progressBar.style.width = '0%';
+                } else {
+                    progressBar.style.width = (currentWidth + (100 / (slideInterval / 100))) + '%';
+                }
+            }, 100);
+
+            // Auto advance slides
+            carouselTimer = setInterval(nextSlide, slideInterval);
+        }
+
+        function stopCarousel() {
+            clearInterval(carouselTimer);
+            clearInterval(progressTimer);
+        }
+
+        function restartCarousel() {
+            stopCarousel();
+            startCarousel();
+        }
+
+        // Dot click handlers
+        carouselDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+                restartCarousel();
+            });
+        });
+
+        // Start carousel when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            startCarousel();
+        });
+
+        // Pause carousel on hover
+        const carouselContainer = document.querySelector('.relative.max-w-4xl');
+        if (carouselContainer) {
+            carouselContainer.addEventListener('mouseenter', stopCarousel);
+            carouselContainer.addEventListener('mouseleave', startCarousel);
+        }
+
+        // Background image is now set on body element as securesphere3.jpg
+
+        // Contact Form functionality
+
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const submitBtn = document.getElementById('submit-btn');
+            const formMessage = document.getElementById('form-message');
+            const messageIcon = document.getElementById('message-icon');
+            const messageText = document.getElementById('message-text');
+
+            // Start loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span> Sending...</span>';
+            submitBtn.disabled = true;
+
+            const formData = new FormData(this);
+
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            })
+                .then(response => {
+                    if (response.ok) {
+                        formMessage.className = 'mt-4 p-4 rounded-lg bg-green-500/20 border border-green-500';
+                        messageIcon.className = 'fas fa-check-circle text-green-400';
+                        messageText.textContent = '✅ Your message has been sent successfully!';
+                        this.reset();
+                    } else {
+                        throw new Error('FormSubmit returned an error.');
+                    }
+                })
+                .catch(error => {
+                    formMessage.className = 'mt-4 p-4 rounded-lg bg-red-500/20 border border-red-500';
+                    messageIcon.className = 'fas fa-exclamation-circle text-red-500';
+                    messageText.textContent = '❌ Oops! Something went wrong. Please try again later.';
+                    console.error(error);
+                })
+                .finally(() => {
+                    formMessage.classList.remove('hidden');
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i><span> Send Message</span>';
+                    submitBtn.disabled = false;
+
+                    setTimeout(() => {
+                        formMessage.classList.add('hidden');
+                    }, 6000);
+                });
+        });
+
+
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+
+        if (currentTheme === 'dark') {
+            html.classList.add('dark');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+
+            if (html.classList.contains('dark')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'963d07f4e04b8a65',t:'MTc1MzI5MzE0MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
+</html>
