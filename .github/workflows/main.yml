@@ -22,8 +22,7 @@ jobs:
       - name: Set lowercase repo name
         id: repo_name
         run: |
-          name_lc_value=$(echo '${{ github.event.repository.name }}' | tr '[:upper:]' '[:lower:]')
-          echo "name_lc=$name_lc_value" >> $GITHUB_OUTPUT
+           echo "name_lc=$(echo '${{ github.event.repository.name }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
