@@ -4,7 +4,7 @@ on:
   # This trigger is simpler and covers merges to the production branch
   push:
     branches:
-      - production
+      - production 
 
 jobs:
   build-and-deploy:
