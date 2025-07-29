@@ -1,10 +1,9 @@
 name: CI/CD Pipeline
 
 on:
-  # This trigger is simpler and covers merges to the production branch
   push:
     branches:
-      - production 
+      - production
 
 jobs:
   build-and-deploy:
@@ -13,6 +12,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Set lowercase repo name
+        id: repo_name
+        run: |
+          name_lc=$(echo "${{ github.event.repository.name }}" | tr '[:upper:]' '[:lower:]')
+          echo "name_lc=$name_lc" >> "$GITHUB_OUTPUT"
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -29,8 +34,8 @@ jobs:
           context: ./
           push: true
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/${{ toLowerCase(github.event.repository.name) }}:${{ github.sha }}
-            ${{ secrets.DOCKER_USERNAME }}/${{ toLowerCase(github.event.repository.name) }}:latest
+            ${{ secrets.DOCKER_USERNAME }}/${{ steps.repo_name.outputs.name_lc }}:${{ github.sha }}
+            ${{ secrets.DOCKER_USERNAME }}/${{ steps.repo_name.outputs.name_lc }}:latest
 
       - name: Set up SSH
         run: |
@@ -41,4 +46,5 @@ jobs:
 
       - name: Deploy to production server
         run: ssh ${{ secrets.SERVER_BOT }}@${{ secrets.SERVER_IP }} "~/deploy.sh"
+
 
