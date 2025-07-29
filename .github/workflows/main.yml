@@ -25,7 +25,8 @@ jobs:
       - name: Set lowercase repo name
         id: repo_name
         run: |
-          echo "name_lc=$(echo '${{ github.event.repository.name }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+          echo "name_lc=$(echo '${{ github.event.repository.name }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
+
 
 
       - name: Set up Docker Buildx
