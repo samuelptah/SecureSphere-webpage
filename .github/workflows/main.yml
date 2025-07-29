@@ -19,10 +19,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      # Debug step: Print the raw repository name
+      - name: Print raw repository name
+        run: echo "Raw repository name: ${{ github.event.repository.name }}"
+
       - name: Set lowercase repo name
         id: repo_name
         run: |
-           echo "name_lc=$(echo '${{ github.event.repository.name }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
+          name_lc_value=$(echo '${{ github.event.repository.name }}' | tr '[:upper:]' '[:lower:]')
+          echo "name_lc=$name_lc_value" >> $GITHUB_OUTPUT
+
+      # Debug step: Print the lowercased repository name from the output
+      - name: Print lowercased repo name
+        run: echo "Lowercased repo name output: ${{ steps.repo_name.outputs.name_lc }}"
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
@@ -51,3 +60,4 @@ jobs:
 
       - name: Deploy to production server
         run: ssh ${{ secrets.SERVER_BOT }}@${{ secrets.SERVER_IP }} "~/deploy.sh"
+
