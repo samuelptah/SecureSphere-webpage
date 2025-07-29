@@ -43,8 +43,9 @@ jobs:
           context: ./
           push: true
           tags: |
-            samptah/securesphere:${{ github.sha }}
-            samptah/securesphere:latest
+            ${{ secrets.DOCKER_USERNAME }}/${{ steps.repo_name.outputs.name_lc }}:${{ github.sha }}
+            ${{ secrets.DOCKER_USERNAME }}/${{ steps.repo_name.outputs.name_lc }}:latest
+
 
       - name: Set up SSH
         run: |
