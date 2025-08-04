@@ -8,7 +8,8 @@ WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*
 
 # Copy your static website files (HTML, JS, etc.) into the container
-COPY . .
+COPY index.html /usr/share/nginx/html/
+
 
 # Expose port 80
 EXPOSE 80
